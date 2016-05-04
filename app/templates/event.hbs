@@ -1,10 +1,34 @@
-<p>{{model.id}}</p>
-<p>{{model.name}}</p>
-<p>{{model.description}}</p>
+{{user-name onComplete=(action 'set_user_name')}}
+<div class="ui centered grid">
+  <div class="six wide column">
+    <div class="ui segments">
+      <div class="ui teal inverted center aligned segment">
+        <p>{{model.name}}</p>
+      </div>
+      <div class="ui segment">
+        <p>{{model.description}}</p>
+ 
+        <div class="ui divider"></div>
 
-<ul>
-  {{#each model.times as |time|}}
-    <li>{{time.event_time}}</li>
-  {{/each}}
-</ul>
+        {{#each model.times as |time|}}
+        <div class="ui middle aligned divided list">
+          <div class="item">
+            <div class="right floated content">
+              <div class="ui toggle checkbox">
+                <input type="checkbox"
+                onclick={{action (action 'add_person' time.id) value='target.checked'}} />
+                <label></label>
+              </div>
+            </div>
+            <i class="calendar icon"></i>
+            <div class="content">
+              {{time.event_time}}
+            </div>
+          </div>
+        </div>
+        {{/each}}
 
+      </div>
+    </div>
+  </div>
+</div>
