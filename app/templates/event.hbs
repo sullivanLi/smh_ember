@@ -1,4 +1,4 @@
-{{user-name onComplete=(action 'set_user_name')}}
+{{user-name onComplete=(action 'set_user_name' model)}}
 <div class="ui centered grid">
   <div class="six wide column">
     <div class="ui segments">
@@ -14,10 +14,12 @@
         <div class="ui middle aligned divided list">
           <div class="item">
             <div class="right floated content">
-              <div class="ui toggle checkbox">
-                <input type="checkbox"
-                onclick={{action (action 'add_person' time.id) value='target.checked'}} />
-                <label></label>
+              <div class="ui toggle checkbox" id={{time.id}}
+                onmouseup={{action 'add_person' time.id}} >
+                <input type="checkbox" id="checkbox{{time.id}}" />
+                <label>
+                  <a class="ui pink circular label">{{time.people.length}}</a>
+                </label>
               </div>
             </div>
             <i class="calendar icon"></i>
@@ -25,7 +27,12 @@
               {{time.event_time}}
             </div>
           </div>
+
+          {{#each time.people as |person|}}
+            <a class="ui basic label">{{person.name}}</a>
+          {{/each}}
         </div>
+        <div class="ui divider"></div>
         {{/each}}
 
       </div>
