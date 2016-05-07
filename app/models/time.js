@@ -1,25 +1,8 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
   event_id: DS.attr('string'),
-  time: DS.attr('date'),
+  date_str: DS.attr('string'),
   event: DS.belongsTo('event'),
-  event_time: Ember.computed(function() {
-    var time = this.get('time');
-    var date = time.getFullYear() + '/' + time.getMonth() + '/' + time.getDate();
-    date = date + ' ' + addZero(time.getHours()) + ':' + addZero(time.getMinutes());
-    date = date + ' ' + days[time.getDay()];
-    return `${date}`;
-  }),
   people: DS.hasMany('person')
 });
-
-var days = ['Sun.','Mon.','Tue.','Wed.','Thu.','Fri.','Sat.'];
-
-function addZero(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}

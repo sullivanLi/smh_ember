@@ -1,9 +1,9 @@
 {{user-name onComplete=(action 'set_user_name' model)}}
 <div class="ui centered grid">
-  <div class="six wide column">
+  <div class="sixteen wide mobile twelve wide tablet eight wide computer column">
     <div class="ui segments">
       <div class="ui teal inverted center aligned segment">
-        <p>{{model.name}}</p>
+        <h2>{{model.name}}</h2>
       </div>
       <div class="ui segment">
         <p>{{model.description}}</p>
@@ -24,12 +24,12 @@
             </div>
             <i class="calendar icon"></i>
             <div class="content">
-              {{time.event_time}}
+              {{time.date_str}}
             </div>
           </div>
 
           {{#each time.people as |person|}}
-            <a class="ui basic label">{{person.name}}</a>
+            <a class="ui blue basic label">{{person.name}}</a>
           {{/each}}
         </div>
         <div class="ui divider"></div>
