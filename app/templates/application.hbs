@@ -5,8 +5,11 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="page-scroll">
-          <a class="btn btn-info" role="button">Log in</a>
+        <li id="events-link" class="page-scroll hidden">
+          <a href="#">My Events</a>
+        </li>
+        <li id="login-btn" class="page-scroll hidden">
+          <a class="btn btn-info" role="button" onclick={{action 'FBLogin'}}> Log in</a>
         </li>
       </ul>
     </div>

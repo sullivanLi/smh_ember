@@ -18,6 +18,11 @@ module.exports = function(environment) {
       'Nunito'
     ],
 
+    FB: {
+      appId: '1792062867707561',
+      version: 'v2.7'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
