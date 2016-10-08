@@ -408,6 +408,13 @@ fieldset[disabled] .btn-success.active {
   color: white !important;
   background-color: #33ccff !important;
 }
+.open > .dropdown-toggle {
+  color: #18BC9C !important;
+  background: #2C3E50 !important;
+}
+li.dropdown.open > ul.dropdown-menu a {
+  color: black;
+}
 .scroll-top {
   position: fixed;
   right: 2%;

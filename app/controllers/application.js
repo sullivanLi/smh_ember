@@ -7,8 +7,10 @@ export default Ember.Controller.extend({
         FB.api('/me', 'GET', {fields: 'name'}, function(response) {
           sessionStorage.setItem('fb_id', response.id);
           sessionStorage.setItem('fb_name', response.name);
-          Ember.$('#events-link').removeClass('hidden');
-          Ember.$('#events-link').find('a').text(response.name);
+          Ember.$('#my-account').removeClass('hidden');
+          var account_text = Ember.$('#my-account > a').html();
+          account_text = account_text.replace("My Account", response.name);
+          Ember.$('#my-account > a').html(account_text);
         });
       }else{
         Ember.$('#login-btn').removeClass('hidden');

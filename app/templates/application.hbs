@@ -5,8 +5,16 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li id="events-link" class="page-scroll hidden">
-          <a href="#">My Events</a>
+        <li id="my-account" class="dropdown hidden">
+          <a class="dropdown-toggle" type="button" href="#" data-toggle="dropdown">
+            My Account<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">New Event</a></li>
+            <li><a href="#">My Events</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Log out</a></li>
+          </ul>
         </li>
         <li id="login-btn" class="page-scroll hidden">
           <a class="btn btn-info" role="button" onclick={{action 'FBLogin'}}> Log in</a>
