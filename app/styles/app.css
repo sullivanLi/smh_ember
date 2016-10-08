@@ -7,6 +7,10 @@ body {
   font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
 }
+body.modal-open {
+  overflow-y: scroll;
+  padding-right: 0 !important;
+}
 p {
   font-size: 20px;
 }
@@ -126,6 +130,51 @@ highlight:after {
 }
 .font-blue {
   color:#25c6fe;
+}
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+#newEvent input[type="text"],
+#newEvent textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+#newEvent textarea {
+  height: 150px;
+  max-width: 100%;
+  resize: none;
+}
+#eventModal button[type="submit"] {
+  cursor: pointer;
+  width: 60%;
+  border: none;
+  background: #18BC9C;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 20px;
+}
+#eventModal .modal-footer {
+  text-align: center;
+}
+::-webkit-input-placeholder {
+  color: #888;
+}
+:-moz-placeholder {
+  color: #888;
+}
+::-moz-placeholder {
+  color: #888;
+}
+:-ms-input-placeholder {
+  color: #888;
 }
 .navbar-custom {
   background: #2C3E50;

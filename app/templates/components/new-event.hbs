@@ -1,0 +1,26 @@
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="eventModalLabel">Create new event</h4>
+      </div>
+      <div class="modal-body">
+        <form id="newEvent">
+          <fieldset>
+            <input placeholder="Event's name" type="text" tabindex="1" required autofocus>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Set your desired dates and options" type="text" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <textarea placeholder="Type event's description here...." tabindex="3" required></textarea>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
