@@ -11,10 +11,13 @@
             <input placeholder="Event's name" type="text" tabindex="1" required autofocus>
           </fieldset>
           <fieldset>
-            <input placeholder="Set your desired dates and options" type="text" tabindex="2" required>
+            <textarea id="date-area" placeholder="Set your desired dates and options" tabindex="2" required readonly></textarea>
+            <button type="button" id="add-date-btn" class="btn btn-primary">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            </button>
           </fieldset>
           <fieldset>
-            <textarea placeholder="Type event's description here...." tabindex="3" required></textarea>
+            <textarea id="desc-area" placeholder="Type event's description here...." tabindex="3" required></textarea>
           </fieldset>
         </form>
       </div>
