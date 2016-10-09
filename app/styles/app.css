@@ -169,17 +169,14 @@ fieldset {
   padding: 10px;
   font-size: 20px;
 }
-#add-date-btn {
-  cursor: pointer;
-  height: 50px;
+#newEvent > fieldset > div {
   width: 12%;
+  float: right;
+}
+#add-date-btn {
   border: none;
   background: #66ccff;
   color: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 20px;
-  float: right;
 }
 #eventModal .modal-footer {
   text-align: center;

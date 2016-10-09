@@ -16,5 +16,9 @@ export default Ember.Component.extend({
         Ember.$('#date-area').val(datetime_array);
       }
     });
+    Ember.$('#clear-date-btn').on('click', function(){
+      datetime_array = [];
+      Ember.$('#date-area').val("");
+    });
   }
 });

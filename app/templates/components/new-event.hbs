@@ -12,9 +12,14 @@
           </fieldset>
           <fieldset>
             <textarea id="date-area" placeholder="Set your desired dates and options" tabindex="2" required readonly></textarea>
-            <button type="button" id="add-date-btn" class="btn btn-primary">
-              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-            </button>
+            <div class="btn-group-vertical" role="group">
+              <button type="button" id="add-date-btn" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </button>
+              <button type="button" id="clear-date-btn" class="btn btn-danger">
+                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+              </button>
+            </div>
           </fieldset>
           <fieldset>
             <textarea id="desc-area" placeholder="Type event's description here...." tabindex="3" required></textarea>
@@ -22,7 +27,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" id="new-event-submit" class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
