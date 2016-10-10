@@ -19,10 +19,13 @@ export default Ember.Controller.extend({
   },
   
   actions: {
-    FBLogin() {
+    fb_login() {
       FB.login(function(response) {
         console.log('login now');
       });
+    },
+    visit_event(event_id) {
+      this.transitionToRoute('event', event_id);
     }
   }
 });

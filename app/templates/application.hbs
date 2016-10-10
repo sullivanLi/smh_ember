@@ -17,7 +17,7 @@
           </ul>
         </li>
         <li id="login-btn" class="page-scroll hidden">
-          <a class="btn btn-info" role="button" onclick={{action 'FBLogin'}}> Log in</a>
+          <a class="btn btn-info" role="button" onclick={{action 'fb_login'}}> Log in</a>
         </li>
       </ul>
     </div>
@@ -36,4 +36,4 @@
     </div>
   </div>
 </footer>
-{{new-event}}
+{{new-event onComplete=(action 'visit_event')}}
