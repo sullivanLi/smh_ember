@@ -8,7 +8,7 @@
       <div class="modal-body">
         <form id="newEvent">
           <fieldset>
-            <input placeholder="Event's name" type="text" tabindex="1" required autofocus>
+            <input id="event-name" placeholder="Event's name" type="text" tabindex="1" required autofocus>
           </fieldset>
           <fieldset>
             <textarea id="date-area" placeholder="Set your desired dates and options" tabindex="2" required readonly></textarea>
@@ -25,6 +25,9 @@
             <textarea id="desc-area" placeholder="Type event's description here...." tabindex="3" required></textarea>
           </fieldset>
         </form>
+        <div id="error-msg" class="alert alert-danger" role="alert">
+          These fields cannot be blank!
+        </div>
       </div>
       <div class="modal-footer">
         <button type="submit" id="new-event-submit" class="btn btn-primary">Create</button>
