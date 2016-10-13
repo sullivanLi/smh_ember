@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  init: function() {
+    Ember.run.later(this, (function() {
+      Ember.$(':checkbox').checkboxpicker();
+    }), 200);
+  },
   username: null,
   actions: {
     add_person(time_id) {

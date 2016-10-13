@@ -10,6 +10,7 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
   app.import('vendor/datetimepicker/js/jquery.datetimepicker.full.min.js')
   app.import('vendor/datetimepicker/css/jquery.datetimepicker.min.css')
+  app.import('vendor/checkbox/js/bootstrap-checkbox.min.js')
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

@@ -1,41 +1,34 @@
-{{user-name onComplete=(action 'set_user_name' model)}}
-<div class="ui centered grid">
-  <div class="sixteen wide mobile twelve wide tablet eight wide computer column">
-    <div class="ui segments">
-      <div class="ui teal inverted center aligned segment">
-        <h2>{{model.name}}</h2>
-      </div>
-      <div class="ui segment">
-        <p>{{model.description}}</p>
- 
-        <div class="ui divider"></div>
-
-        {{#each model.times as |time|}}
-        <div class="ui middle aligned divided list">
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui toggle checkbox" id={{time.id}}
-                onmouseup={{action 'add_person' time.id}} >
-                <input type="checkbox" id="checkbox{{time.id}}" />
-                <label>
-                  <a class="ui pink circular label">{{time.people.length}}</a>
-                </label>
+<section class="success">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12"><br/></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-primary">
+          <div class="panel-heading text-center"><h3>{{model.name}}</h3></div>
+          <div class="panel-body">
+            <span class="content">
+              {{model.description}}
+            </span>
+            {{#each model.times as |time|}}
+              <hr class="light">
+              <div class="content">
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                {{time.date_str}}
+                <span class="float-right">
+                  <span class="visible-md visible-lg">Available</span>
+                  <input type="checkbox">
+                </span>
+              </div><br>
+              <div class="content">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span class="badge badge-notify">0</span>
               </div>
-            </div>
-            <i class="calendar icon"></i>
-            <div class="content">
-              {{time.date_str}}
-            </div>
+            {{/each}}
           </div>
-
-          {{#each time.people as |person|}}
-            <a class="ui blue basic label">{{person.name}}</a>
-          {{/each}}
         </div>
-        <div class="ui divider"></div>
-        {{/each}}
-
       </div>
     </div>
   </div>
-</div>
+</section>

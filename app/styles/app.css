@@ -34,6 +34,14 @@ h6 {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
+hr.light {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-top: solid 2px;
+  border-color: #428BCA;
+}
 hr.simple,
 hr.star-light,
 hr.star-primary {
@@ -193,6 +201,15 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+.badge-notify{
+  background: #428BCA;
+  position: relative;
+  top: -20px;
+  left: -15px;
+}
+.float-right {
+  float: right;
+}
 .navbar-custom {
   background: #2C3E50;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -276,7 +293,7 @@ section h2 {
 }
 section.success {
   background: #18BC9C;
-  color: white;
+  min-height: 900px;
 }
 @media (max-width: 767px) {
   section {
