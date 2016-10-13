@@ -27,6 +27,7 @@ export default Ember.Component.extend({
   },
     actions: {
       submit_form() {
+        var $controller = this;
         Ember.$('#error-msg').hide();
         var event_name = Ember.$('#event-name').val();
         var event_dates = Ember.$('#date-area').val();
@@ -42,8 +43,9 @@ export default Ember.Component.extend({
           data: { name: event_name, dates: event_dates, description: event_desc },
           complete: function (data) {
             if(data['responseText']) {
+              $('#eventModal').modal('toggle');
               var json_data =  Ember.$.parseJSON(data['responseText']);
-              this.sendAction('onComplete', json_data.id);
+              $controller.sendAction('onComplete', json_data.id);
             }
           }
         });
