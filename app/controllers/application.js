@@ -4,16 +4,10 @@ export default Ember.Controller.extend({
   init: function() {
     FB.getLoginStatus(function(response) {
       if(response.status === 'connected'){
-        FB.api('/me', 'GET', {fields: 'name'}, function(response) {
-          sessionStorage.setItem('fb_id', response.id);
-          sessionStorage.setItem('fb_name', response.name);
-          Ember.$('#my-account').removeClass('hidden');
-          var account_text = Ember.$('#my-account > a').html();
-          account_text = account_text.replace("My Account", response.name);
-          Ember.$('#my-account > a').html(account_text);
-        });
+        display_account();
+        get_fb_info();
       }else{
-        Ember.$('#login-btn').removeClass('hidden');
+        display_login_btn();
       }
     });
   },
@@ -21,7 +15,15 @@ export default Ember.Controller.extend({
   actions: {
     fb_login() {
       FB.login(function(response) {
-        console.log('login now');
+        if(response.status === 'connected') {
+          get_fb_info();
+          display_account();
+        }
+      });
+    },
+    fb_logout() {
+      FB.logout(function() {
+        display_login_btn();
       });
     },
     visit_event(event_id) {
@@ -29,3 +31,27 @@ export default Ember.Controller.extend({
     }
   }
 });
+
+function get_fb_info() {
+  FB.api('/me', 'GET', {fields: 'name'}, function(response) {
+    sessionStorage.setItem('fb_id', response.id);
+    sessionStorage.setItem('fb_name', response.name);
+    var account_text = Ember.$('#my-account > a').html();
+    account_text = account_text.replace("My Account", response.name);
+    Ember.$('#my-account > a').html(account_text);
+  });
+}
+
+function display_account() {
+  Ember.run.schedule("afterRender",this,function() {
+    Ember.$('#login-btn').addClass('hidden');
+    Ember.$('#my-account').removeClass('hidden');
+  });
+}
+
+function display_login_btn() {
+  Ember.run.schedule("afterRender",this,function() {
+    Ember.$('#login-btn').removeClass('hidden');
+    Ember.$('#my-account').addClass('hidden');
+  });
+}
