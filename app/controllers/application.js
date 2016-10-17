@@ -18,6 +18,7 @@ export default Ember.Controller.extend({
         if(response.status === 'connected') {
           get_fb_info();
           display_account();
+          sync_user_info();
         }
       });
     },
@@ -39,6 +40,16 @@ function get_fb_info() {
     var account_text = Ember.$('#my-account > a').html();
     account_text = account_text.replace("My Account", response.name);
     Ember.$('#my-account > a').html(account_text);
+  });
+}
+
+function sync_user_info() {
+  var fb_id = sessionStorage.getItem('fb_id');
+  var name = sessionStorage.getItem('fb_name');
+  Ember.$.ajax({
+    url: 'http://localhost:9292/people/fb',
+    type: 'POST',
+    data: { name: name, fb_id: fb_id }
   });
 }
 
