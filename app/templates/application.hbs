@@ -1,7 +1,7 @@
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container">
     <div class="navbar-header page-scroll">
-      <a class="navbar-brand" href="#page-top">Gathering Dates</a>
+    {{link-to 'Gathering Dates' 'index' class='navbar-brand' }}
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -10,10 +10,10 @@
             My Account<span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#eventModal">New Event</a></li>
-            <li><a href="#">My Events</a></li>
+            <li><a data-toggle="modal" data-target="#eventModal">New Event</a></li>
+            <li>{{link-to 'My Events' 'events' }}</li>
             <li class="divider"></li>
-            <li><a href="#" onclick={{action 'fb_logout'}}>Log out</a></li>
+            <li><a onclick={{action 'fb_logout'}}>Log out</a></li>
           </ul>
         </li>
         <li id="login-btn" class="page-scroll hidden">
