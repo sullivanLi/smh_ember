@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('event', { path: '/event/:event_id' });
-  this.route('time', { path: '/event/:event_id/time' });
   this.route('events');
 });
 
