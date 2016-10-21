@@ -16,7 +16,7 @@
                 <i class="fa fa-edit fa-3x"></i>
               </a>
               <a class="caption-link">
-                <i class="fa fa-trash fa-3x"></i>
+                <i class="fa fa-trash fa-3x" onclick={{action 'delete_event' event}}></i>
               </a>
             </div>
           </div>
@@ -32,3 +32,22 @@
     </div>
   </div>
 </section>
+
+<div id="deleteModal" class="modal fade" role='dialog'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Event</h4>
+      </div>
+      <div class="modal-body">
+        <p>Do You Really Want to Delete <span id="eventName" class="font-blue"></span> ?</p>
+        <div id="error-msg" class="alert alert-danger" role="alert"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
