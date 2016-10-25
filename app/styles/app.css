@@ -437,15 +437,13 @@ fieldset[disabled] .btn-primary.active {
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active,
-.btn-success.active,
-.open .dropdown-toggle.btn-success {
+.btn-success.active {
   color: white;
   background-color: #128f76;
   border-color: #11866f;
 }
 .btn-success:active,
-.btn-success.active,
-.open .dropdown-toggle.btn-success {
+.btn-success.active {
   background-image: none;
 }
 .btn-success.disabled,
@@ -491,13 +489,6 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active {
   color: white !important;
   background-color: #33ccff !important;
-}
-.open > .dropdown-toggle {
-  color: #18BC9C !important;
-  background: #2C3E50 !important;
-}
-li.dropdown.open > ul.dropdown-menu a {
-  color: black;
 }
 .scroll-top {
   position: fixed;

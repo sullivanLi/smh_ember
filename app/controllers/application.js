@@ -4,10 +4,10 @@ export default Ember.Controller.extend({
   init: function() {
     FB.getLoginStatus(function(response) {
       if(response.status === 'connected'){
-        display_account();
+        display_after_login();
         get_fb_info();
       }else{
-        display_login_btn();
+        display_after_logout();
       }
     });
   },
@@ -17,14 +17,18 @@ export default Ember.Controller.extend({
       FB.login(function(response) {
         if(response.status === 'connected') {
           get_fb_info();
-          display_account();
+          display_after_login();
           sync_user_info();
         }
       });
     },
     fb_logout() {
+      var $controller = this;
       FB.logout(function() {
-        display_login_btn();
+        display_after_logout();
+        sessionStorage.setItem('fb_id', '');
+        sessionStorage.setItem('fb_name', '');
+        $controller.transitionToRoute('index');
       });
     },
     visit_event(event_id) {
@@ -37,9 +41,6 @@ function get_fb_info() {
   FB.api('/me', 'GET', {fields: 'name'}, function(response) {
     sessionStorage.setItem('fb_id', response.id);
     sessionStorage.setItem('fb_name', response.name);
-    var account_text = Ember.$('#my-account > a').html();
-    account_text = account_text.replace("My Account", response.name);
-    Ember.$('#my-account > a').html(account_text);
   });
 }
 
@@ -53,16 +54,20 @@ function sync_user_info() {
   });
 }
 
-function display_account() {
+function display_after_login() {
   Ember.run.schedule("afterRender",this,function() {
     Ember.$('#login-btn').addClass('hidden');
-    Ember.$('#my-account').removeClass('hidden');
+    Ember.$('#logout-btn').removeClass('hidden');
+    Ember.$('#new-btn').removeClass('hidden');
+    Ember.$('#events-btn').removeClass('hidden');
   });
 }
 
-function display_login_btn() {
+function display_after_logout() {
   Ember.run.schedule("afterRender",this,function() {
     Ember.$('#login-btn').removeClass('hidden');
-    Ember.$('#my-account').addClass('hidden');
+    Ember.$('#logout-btn').addClass('hidden');
+    Ember.$('#new-btn').addClass('hidden');
+    Ember.$('#events-btn').addClass('hidden');
   });
 }

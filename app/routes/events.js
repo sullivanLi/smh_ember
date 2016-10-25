@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   },
   actions: {
     delete_event_record(event_id) {
-      Ember.$('#error-msg').hide();
+      Ember.$('#delete-error-msg').hide();
       var $route = this;
       var fb_id = sessionStorage.getItem('fb_id');
       Ember.$.ajax({
@@ -19,8 +19,8 @@ export default Ember.Route.extend({
             Ember.$("#deleteModal").modal('hide');
             $route.refresh();
           } else {
-            Ember.$('#error-msg').text('some errors occurred');
-            Ember.$('#error-msg').fadeIn();
+            Ember.$('#delete-error-msg').text('some errors occurred');
+            Ember.$('#delete-error-msg').fadeIn();
           }
         }
       });

@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     delete_event(event) {
       Ember.$("#confirmDelete").data("eventid", event.id);
       Ember.$("#eventName").text(event.get("name"));
-      Ember.$('#error-msg').hide();
+      Ember.$('#delete-error-msg').hide();
       Ember.$("#deleteModal").modal('show');
     }
   }

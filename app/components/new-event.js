@@ -23,18 +23,18 @@ export default Ember.Component.extend({
       Ember.$('#date-area').val("");
     });
 
-    Ember.$('#error-msg').hide();
+    Ember.$('#add-error-msg').hide();
   },
     actions: {
       submit_form() {
         var $controller = this;
-        Ember.$('#error-msg').hide();
+        Ember.$('#add-error-msg').hide();
         var event_name = Ember.$('#event-name').val();
         var event_dates = Ember.$('#date-area').val();
         var event_desc = Ember.$('#desc-area').val();
         if (event_name === '' || event_dates === '' || event_desc === ''){
-          Ember.$('#error-msg').text('These fields cannot be blank!');
-          Ember.$('#error-msg').fadeIn();
+          Ember.$('#add-error-msg').text('These fields cannot be blank!');
+          Ember.$('#add-error-msg').fadeIn();
           return;
         }
         var fb_id = sessionStorage.getItem('fb_id');
@@ -48,12 +48,15 @@ export default Ember.Component.extend({
               var json_data;
               if (data.status === 200) {
                 Ember.$('#eventModal').modal('toggle');
+                Ember.$('#event-name').val('');
+                Ember.$('#date-area').val('');
+                Ember.$('#desc-area').val('');
                 json_data =  Ember.$.parseJSON(data['responseText']);
                 $controller.sendAction('onComplete', json_data.id);
               } else {
                 json_data =  Ember.$.parseJSON(data['responseText']);
-                Ember.$('#error-msg').text(json_data.error);
-                Ember.$('#error-msg').fadeIn();
+                Ember.$('#add-error-msg').text(json_data.error);
+                Ember.$('#add-error-msg').fadeIn();
               }
             }
           }
