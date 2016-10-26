@@ -428,19 +428,14 @@ fieldset[disabled] .btn-primary.active {
   color: #2C3E50;
   background-color: white;
 }
-.btn-success {
-  color: white;
-  background-color: #18BC9C;
-  border-color: #18BC9C;
-  font-weight: 700;
-}
+.btn-success,
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active,
 .btn-success.active {
   color: white;
-  background-color: #128f76;
-  border-color: #11866f;
+  background-color: #18BC9C;
+  border-color: #18BC9C;
 }
 .btn-success:active,
 .btn-success.active {
