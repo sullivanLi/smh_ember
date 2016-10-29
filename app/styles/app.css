@@ -190,6 +190,9 @@ fieldset {
 #eventModal .modal-footer {
   text-align: center;
 }
+#event-panel {
+  min-width: 400px;
+}
 ::-webkit-input-placeholder {
   color: #888;
 }
@@ -202,11 +205,16 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
-.badge-notify{
+.badge-notify {
   background: #428BCA;
   position: relative;
   top: -20px;
   left: -15px;
+}
+.badge-name {
+  background: #ccebff;
+  color: black;
+  font-size: 0.75em;
 }
 .float-right {
   float: right;

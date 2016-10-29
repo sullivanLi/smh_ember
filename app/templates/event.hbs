@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" id="event-panel">
           <div class="panel-heading text-center"><h3>{{model.name}}</h3></div>
           <div class="panel-body">
             <span class="content">
@@ -17,12 +17,22 @@
                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                 {{time.date_str}}
                 <span class="float-right">
-                  {{bootstrap-checkbox}}
+                  {{bootstrap-checkbox onComplete=(action 'refresh') time_id=time.id people=time.people}}
                 </span>
               </div><br>
               <div class="content">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <span class="badge badge-notify">0</span>
+                <table class="table table-condensed">
+                  <tr><td class="text-nowrap col-xs-1">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span class="badge badge-notify">{{time.people.length}}</span>
+                  </td><td class="col-xs-10">
+                    {{#each time.people as |person|}}
+                     <span class="badge badge-name">
+                       {{person.name}}
+                     </span>
+                     {{/each}}
+                  </td></tr>
+                </table>
               </div>
             {{/each}}
           </div>

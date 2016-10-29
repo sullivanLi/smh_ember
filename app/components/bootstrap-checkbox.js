@@ -1,22 +1,44 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  time_id: undefined,
+  people: [],
   didInsertElement: function() {
-    Ember.$('.button-checkbox').each(function () {
-      updateDisplay(this);
+    let $span = Ember.$('#' + this.time_id);
+    let person_id = sessionStorage.getItem('person_id');
+    this.people.forEach(function(person) {
+      if(person.get('id') === person_id) {
+        let $checkbox = $span.find('input:checkbox');
+        $checkbox.prop('checked', !$checkbox.is(':checked'));
+      }
     });
+    updateDisplay($span);
   },
   actions: {
     click_checkbox(e) {
-      var span = e.target.parentElement;
+      let span = e.target.parentElement;
       while (span.nodeName !== 'SPAN') {
         span = span.parentElement;
       }
-      var $checkbox = Ember.$(span).find('input:checkbox');
-
+      let $checkbox = Ember.$(span).find('input:checkbox');
       $checkbox.prop('checked', !$checkbox.is(':checked'));
       $checkbox.triggerHandler('change');
       updateDisplay(span);
+    },
+    change_checkbox(e) {
+      let isChecked = Ember.$(e.target).is(':checked');
+      let url = 'http://localhost:9292/times/' + this.time_id + '/person';
+      let type = isChecked ? 'POST' : 'DELETE';
+      let fb_id = sessionStorage.getItem('fb_id');
+      let $component = this;
+      Ember.$.ajax({
+        url: url,
+        type: type,
+        data: { fb_id: fb_id },
+        complete: function () {
+          $component.sendAction('onComplete');;
+        }
+      });
     }
   }
 });
