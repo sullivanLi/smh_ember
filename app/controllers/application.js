@@ -21,13 +21,11 @@ export default Ember.Controller.extend({
       });
     },
     fb_logout() {
-      var $controller = this;
+      let _this = this;
       FB.logout(function() {
+        auth.clear_session_item();
         display_after_logout();
-        sessionStorage.setItem('fb_id', '');
-        sessionStorage.setItem('fb_name', '');
-        sessionStorage.setItem('person_id', '');
-        $controller.transitionToRoute('index');
+        _this.transitionToRoute('index');
       });
     },
     visit_event(event_id) {
@@ -62,6 +60,11 @@ var Auth = Ember.Object.extend({
         }
       }
     });
+  },
+  clear_session_item: function() {
+    sessionStorage.setItem('fb_id', '');
+    sessionStorage.setItem('fb_name', '');
+    sessionStorage.setItem('person_id', '');
   }
 });
 var auth = Auth.create();
@@ -72,6 +75,8 @@ function display_after_login() {
     Ember.$('#logout-btn').removeClass('hidden');
     Ember.$('#new-btn').removeClass('hidden');
     Ember.$('#events-btn').removeClass('hidden');
+    Ember.$('.c-section').addClass('hidden');
+    Ember.$('.button-checkbox').removeClass('hidden');
   });
 }
 
@@ -81,5 +86,7 @@ function display_after_logout() {
     Ember.$('#logout-btn').addClass('hidden');
     Ember.$('#new-btn').addClass('hidden');
     Ember.$('#events-btn').addClass('hidden');
+    Ember.$('.c-section').removeClass('hidden');
+    Ember.$('.button-checkbox').addClass('hidden');
   });
 }

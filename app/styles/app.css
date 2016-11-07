@@ -93,6 +93,49 @@ header img {
   display: block;
   margin: 0 auto 20px;
 }
+.c-section {
+  position: fixed;
+  width: 100%;
+  opacity: 0.95;
+  bottom: 5%;
+  z-index: 2;
+  background-color: #77d1c5;
+  color: white;
+  text-align: center;
+}
+.c-title {
+  color: white;
+  font-size: 2em;
+  font-weight:600;
+  padding-right: 50px;
+}
+.c-button {
+  cursor: pointer;
+  padding:1rem 1rem;
+  display: inline-block;
+  min-width:5em;
+  margin-bottom:3px;
+  border:none;
+  border-radius:0.25rem;
+  color: #77d1c5;
+  background-color:white;
+  font-size: 1.6em;
+  font-weight: 600;
+  box-shadow:0px 3px 0px 0px #208c78;
+  transition:all 0.1s ease-in-out;
+  -webkit-appearance:none
+}
+.c-button:hover{
+  color: #77d1c5;
+  text-decoration: none;
+  box-shadow:0px 5px 0px 0px #239882;
+  -ms-transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  transform:translateY(-2px);
+}
+.c-section__full {
+  padding: 2% 0;
+}
 .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -310,6 +353,16 @@ section.success {
   }
   section.first {
     padding-top: 75px;
+  }
+  .c-title {
+    font-size: 1.4em;
+    font-weight: 300;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .c-button{
+    font-size: 1.4em;
+    font-weight: 300;
   }
 }
 .floating-label-form-group {

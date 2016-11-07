@@ -6,13 +6,17 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     let $span = Ember.$('#' + this.time_id);
     let person_id = sessionStorage.getItem('person_id');
-    this.people.forEach(function(person) {
-      if(person.get('id') === person_id) {
-        let $checkbox = $span.find('input:checkbox');
-        $checkbox.prop('checked', !$checkbox.is(':checked'));
-      }
-    });
-    updateDisplay($span);
+    if(person_id === null || person_id === ''){
+      $span.addClass('hidden');
+    } else {
+      this.people.forEach(function(person) {
+        if(person.get('id') === person_id) {
+          let $checkbox = $span.find('input:checkbox');
+          $checkbox.prop('checked', !$checkbox.is(':checked'));
+        }
+      });
+      updateDisplay($span);
+    }
   },
   actions: {
     click_checkbox(e) {
@@ -36,7 +40,7 @@ export default Ember.Component.extend({
         type: type,
         data: { fb_id: fb_id },
         complete: function () {
-          $component.sendAction('onComplete');;
+          $component.sendAction('onComplete');
         }
       });
     }
