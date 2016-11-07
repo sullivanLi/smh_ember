@@ -234,7 +234,7 @@ fieldset {
   text-align: center;
 }
 #event-panel {
-  min-width: 400px;
+  min-width: 260px;
 }
 ::-webkit-input-placeholder {
   color: #888;
@@ -363,6 +363,11 @@ section.success {
   .c-button{
     font-size: 1.4em;
     font-weight: 300;
+  }
+}
+@media (max-width: 467px) {
+  .content.date {
+    font-size: 1em;
   }
 }
 .floating-label-form-group {
